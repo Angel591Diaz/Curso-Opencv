@@ -27,11 +27,20 @@ class Perceptron:
                 break
 
 if __name__ == '__main__':
-    inputs = np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0],[0, 0, 1],[1, 0, 1], [1, 1, 1]])
-    targets = np.array([0, 0, 0, 0, 0, 0, 1])
+    # inputs = np.array([[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0],[0, 0, 1],[1, 0, 1], [1, 1, 1]])
+    # targets = np.array([0, 0, 0, 0, 0, 0, 1])
 
-    mi_perceptron = Perceptron(3)
+    inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+    targets = np.array([0, 0, 0, 1])
+
+    # Sin entrenamiento
+    mi_perceptron = Perceptron(2)
+    for i in range(len(inputs)):
+        output= mi_perceptron.predict(inputs[i])
+        print(inputs[i], output) 
+    
+    # Con entrenamiento
     mi_perceptron.train(inputs, targets, n_epocas=100)
     for i in range(len(inputs)):
         output= mi_perceptron.predict(inputs[i])
-        print(inputs[i], output)
+        print(inputs[i], output) 
